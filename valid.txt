@@ -1,0 +1,61 @@
+1. GET https://www.example.com
+2. GET https://www.example.com/about
+3. POST https://www.example.com/login, {"username":"testuser", "password":"testpassword"}
+4. GET https://www.example.com/search?q=example
+5. PUT https://www.example.com/user?id=123, {"name":"John Doe", "email":"john.doe@example.com"}
+6. DELETE https://www.example.com/user/123
+7. GET https://www.example.com/api/v1/users
+8. POST https://www.example.com/api/v1/create_user, {"name":"Jane Doe", "email":"jane.doe@example.com"}
+9. GET https://www.example.com/products?category=electronics
+10. GET https://www.example.com/products/123
+11. PUT https://www.example.com/products/123, {"name":"Smart Watch", "price":249.99}
+12. DELETE https://www.example.com/products/123
+13. POST https://www.example.com/cart/add, {"product":"123", "quantity":2}
+14. GET https://www.example.com/cart
+15. DELETE https://www.example.com/cart/remove_all
+16. PUT https://www.example.com/user/123, {"name":"John Doe Jr."}
+17. POST https://www.example.com/user/123/avatar, {"avatar":"imageurl.com"}
+18. GET https://www.example.com/settings
+19. PUT https://www.example.com/settings, {"language":"en"}
+20. GET https://www.example.com/orders?status=pending
+21. DELETE https://www.example.com/orders/123/cancel
+22. GET https://www.example.com/search?category=books&query=java
+23. GET https://www.example.com/blog
+24. POST https://www.example.com/blog/create, {"title":"My First Blog Post", "content":"Lorem ipsum dolor sit amet."}
+25. PUT https://www.example.com/blog/123/update, {"title":"Updated Blog Post", "content":"Lorem ipsum dolor sit amet, consectetur adipiscing elit."}
+26. DELETE https://www.example.com/blog/123/delete
+27. GET https://www.example.com/products?sortBy=price&orderBy=desc
+28. GET https://www.example.com/about/team
+29. POST https://www.example.com/contact, {"name":"John Doe", "email":"john.doe@example.com", "message":"Hello, I have a question."}
+30. PUT https://www.example.com/user-settings, {"notifications":"off"}
+
+1. GET http://www.example.com/index.php?name=john
+2. POST http://www.example.com/login.php?referer=/account, {"username": "john@mail.com", "password": "pass123"}
+3. PUT http://localhost:3000/users/1, {"name": "John", "age": 25}
+4. DELETE http://api.example.com/cars/1
+5. HEAD http://www.example.com/
+6. OPTIONS http://www.example.com/
+7. CONNECT http://www.example.com/
+8. TRACE http://www.example.com/
+9. PATCH http://api.example.com/users/1, {"name": "John Doe"}
+10. GET http://api.example.com/products?category=books
+11. POST http://www.example.com/signup.php, {"username": "john", "email": "john@mail.com", "password": "pass123", "confirm_password": "pass123"}
+12. PUT http://localhost:3000/books/1, {"title": "The Great Gatsby", "author": "F. Scott Fitzgerald"}
+13. DELETE http://api.example.com/users/1
+14. HEAD http://api.example.com/users/1
+15. OPTIONS http://api.example.com/users
+16. CONNECT http://localhost:3000/users/2
+17. TRACE http://localhost:3000/books
+18. PATCH http://www.example.com/password.php, {"current_password": "pass123", "new_password": "pass1234", "confirm_password": "pass1234"}
+19. GET http://api.example.com/users/1/orders
+20. POST http://localhost:3000/cars, {"make": "Toyota", "model": "Corolla", "year": 2020}
+21. PUT http://api.example.com/products/1, {"name": "Book", "category": "Fiction", "price": 9.99}
+22. DELETE http://localhost:3000/users/1
+23. HEAD http://api.example.com/products/2
+24. OPTIONS http://localhost:3000/orders
+25. CONNECT http://api.example.com/
+26. TRACE http://localhost:3000/
+27. PATCH http://www.example.com/profile.php, {"first_name": "John", "last_name": "Doe", "email": "john@mail.com", "phone": "555-123-4567"}
+28. GET http://api.example.com/users/2/friends
+29. POST http://www.example.com/contact.php, {"name": "John", "email": "john@mail.com", "message": "Hello, I have a question about your product."}
+30. PUT http://localhost:3000/orders/1, {"status": "shipped", "tracking_number": "123456789"}
