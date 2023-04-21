@@ -26,6 +26,7 @@ list(APPEND LIB_SOURCES "src/parser.cpp")
 # list(REMOVE_ITEM LIB_SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/src/test.cpp)
 
 add_library(mylib SHARED ${LIB_SOURCES})
+add_subdirectory("./open62541")
 
 add_executable(myexecutable src/test.cpp)
 
