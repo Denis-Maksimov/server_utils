@@ -1,0 +1,142 @@
+digraph G {
+    // rankdir=LR;
+    node [shape=rectangle];
+    // splines=curved
+    splines=ortho
+    subgraph cluster_Project {
+        
+        label="разрабатываемая система";
+    subgraph cluster_opcua {
+        label="OPCUA";
+        bgcolor="#00ff00";
+        node [shape=ellipse  style=filled];
+        opcua_server1;
+        opcua_server2;
+        opcua_server3;
+        opcua_server_S7;
+        opcua_server_PC;
+        opcua_client;
+        node [shape=rectangle];
+        // opcua_timescaledb;
+    }
+
+    subgraph cluster_MVC{
+        label="MVC";
+        subgraph cluster_database {
+            label="model СУБД";
+            bgcolor="#00ff00";
+            node [shape=ellipse  style=filled];
+            // opcua_server;
+            // opcua_client;
+            node [shape=rectangle];
+            timescaledb;
+        }
+
+        subgraph cluster_authentication {
+            label="Controller";
+            bgcolor="#00ff00";
+            node [shape=ellipse  style=filled];
+            authentication_module[label="Аутентификация"];
+            NN_module[label="Нейросеть"];
+        }
+
+        subgraph cluster_view {
+            label="View";
+            bgcolor="#00ff00";
+            node [shape=ellipse  style=filled];
+            node [shape=ellipse];
+            // view_application;
+            view_web_service;
+        }
+    }
+    subgraph cluster_iot_sensors {
+        label="IoT Sensors";
+        bgcolor="#00ff00";
+        node [shape=ellipse  style=filled];
+        iot_sensor_1;
+        iot_sensor_2;
+        iot_sensor_3;
+    }
+    }
+    subgraph cluster_Field {
+        label="Существующая система";
+    subgraph cluster_S7_connections {
+        bgcolor="#ffd900";
+        splines=line
+        node [shape=ellipse  style=filled];
+        label="ПЛК";
+        node [shape=ellipse];
+        PLC_1;
+        PLC_2;
+        PLC_3;
+    }
+    subgraph cluster_freq_units {
+        bgcolor="#ffd900";
+        node [shape=ellipse  style=filled];
+        label="Частотные преобразователи";
+        node [shape=ellipse];
+        FU1[label="ЧП1"];
+        FU2[label="ЧП2"];
+        FU3[label="ЧП3"];
+    }
+
+    subgraph cluster_PC {
+        
+        label="ПК";
+        bgcolor="#ffd900";
+        node [shape=ellipse  style=filled];
+        SH[label="ПК сорт."];
+        PAK[label="ПК пакет."];
+    }
+    beckhoff[label="система\nизмерения"];
+    }
+    timescaledb -> opcua_client;
+    opcua_client -> opcua_server1;
+    opcua_client -> opcua_server2;
+    opcua_client -> opcua_server3;
+    opcua_client -> opcua_server_S7;
+    opcua_client -> opcua_server_PC;
+    // opcua_client -> authentication_module;
+    // authentication_module -> opcua_server;
+    // view_application -> timescaledb;
+    // view_web_service -> timescaledb;
+    view_web_service -> authentication_module;
+    view_web_service -> timescaledb [xlabel="tokken"];
+    authentication_module->timescaledb;
+    view_web_service ->NN_module
+    NN_module->timescaledb;
+
+
+    opcua_server1 -> iot_sensor_1[xlabel="IEEE 802.11"];
+    opcua_server2 -> iot_sensor_2[xlabel="Modbus"];
+    opcua_server3 -> iot_sensor_3[xlabel="LoRa"];
+
+    opcua_server_S7 -> PLC_1[xlabel="ProfiNet" color=green];
+    opcua_server_S7 -> PLC_2[xlabel="ProfiNet" color=green];
+    opcua_server_S7 -> PLC_3[xlabel="ProfiNet" color=green];
+
+    opcua_server_PC -> SH[xlabel="TCP/IP" color="#0000ff"];
+    opcua_server_PC -> PAK[xlabel="TCP/IP" color="#0000ff"];
+
+    
+    
+    PLC_1->FU1[xlabel="ProfiNet" color=green];
+    FU1->FU2[xlabel="SBUS"];
+    FU2->FU3[xlabel="SBUS"];
+
+    SH->PLC_1[xlabel="ProfiNet" color=green];
+    PAK->PLC_1[xlabel="ProfiNet" color=green];
+
+    
+    SH->beckhoff[label="EtherCat"];
+
+    PLC_2->PLC_1[xlabel="ProfiNet" dir="both" color=green];
+    PLC_1->PLC_3[xlabel="ProfiNet" dir="both" color=green];
+    PLC_2->PLC_3[xlabel="ProfiNet" dir="both" color=green];
+    
+
+
+    // iot_sensor_1 -> opcua_timescaledb;
+    // iot_sensor_2 -> opcua_timescaledb;
+    // iot_sensor_3 -> opcua_timescaledb;
+} 
