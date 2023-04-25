@@ -156,30 +156,30 @@ void decrypt_password_file(const std::string &encrypted_file_name, const std::st
 }
 
 
-int main(int argc, char* argv[])
-{
-    // Сначала нужно сгенерировать пару ключей
-    generate_key_pair("private_key.pem", "public_key.pem");
-    // Затем можно зашифровать файл с парольными данными с помощью открытого ключа
-    encrypt_password_file(argv[1], "public_key.pem");
-    unsigned char* data;
-    auto ss=decrypt_password_file_to_mem("passwords.txt.enc", "private_key.pem");
-    // std::cout<<(char*)data<<std::endl;
-    // printf("%.*s\n",size,data);
-    std::string line2;
-    while (std::getline(ss, line2))
-    {
-        std::cout << line2 << std::endl;
-    }
-    // Теперь можно расшифровать файл с помощью закрытого ключа
-    decrypt_password_file("passwords.txt.enc", "private_key.pem");
-    // Здесь файл passwords.txt уже расшифрован
-    std::ifstream file("passwords.txt");
-    std::string line;
-    while (std::getline(file, line))
-    {
-        std::cout << line << std::endl;
-    }
-    file.close();
-    return 0;
-}
+// int main(int argc, char* argv[])
+// {
+//     // Сначала нужно сгенерировать пару ключей
+//     generate_key_pair("private_key.pem", "public_key.pem");
+//     // Затем можно зашифровать файл с парольными данными с помощью открытого ключа
+//     encrypt_password_file(argv[1], "public_key.pem");
+//     unsigned char* data;
+//     auto ss=decrypt_password_file_to_mem("passwords.txt.enc", "private_key.pem");
+//     // std::cout<<(char*)data<<std::endl;
+//     // printf("%.*s\n",size,data);
+//     std::string line2;
+//     while (std::getline(ss, line2))
+//     {
+//         std::cout << line2 << std::endl;
+//     }
+//     // Теперь можно расшифровать файл с помощью закрытого ключа
+//     decrypt_password_file("passwords.txt.enc", "private_key.pem");
+//     // Здесь файл passwords.txt уже расшифрован
+//     std::ifstream file("passwords.txt");
+//     std::string line;
+//     while (std::getline(file, line))
+//     {
+//         std::cout << line << std::endl;
+//     }
+//     file.close();
+//     return 0;
+// }

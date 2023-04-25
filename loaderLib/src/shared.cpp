@@ -198,7 +198,7 @@ public:
 };
 #endif
 
-#ifndef 1 //TODO
+#ifdef IT_IS_COMMENT //TODO
 // linux
 #if defined(__linux__)
 class tuxEncLib: public BaseType 

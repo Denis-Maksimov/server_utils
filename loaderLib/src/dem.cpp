@@ -29,15 +29,15 @@ std::vector<std::string> get_symbols(const std::string& library_path) {
     return symbols;
 }
 
-int main() {
-    // путь к библиотеке
-    const std::string library_path = "/path/to/library.so";
+// int main() {
+//     // путь к библиотеке
+//     const std::string library_path = "/path/to/library.so";
     
-    // чтение символов из библиотеки и деманглинг имен функций
-    std::vector<std::string> symbols = get_symbols(library_path);
-    for (const auto& symbol : symbols) {
-        std::cout << "Function: " << symbol << std::endl;
-    }
+//     // чтение символов из библиотеки и деманглинг имен функций
+//     std::vector<std::string> symbols = get_symbols(library_path);
+//     for (const auto& symbol : symbols) {
+//         std::cout << "Function: " << symbol << std::endl;
+//     }
     
-    return 0;
-}
+//     return 0;
+// }

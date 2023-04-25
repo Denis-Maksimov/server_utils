@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.5)
 
-project(myproject)
+project(loaderLib)
 
 set(CMAKE_CXX_STANDARD 17)
 
@@ -31,7 +31,7 @@ list(APPEND LIB_SOURCES "src/shared.cpp")
 
 # list(REMOVE_ITEM LIB_SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/src/test.cpp)
 
-add_library(mylib SHARED ${LIB_SOURCES})
+add_library(loaderLib SHARED ${LIB_SOURCES})
 # add_subdirectory("./open62541")
 # add_subdirectory("./snap7")
 
@@ -50,7 +50,7 @@ add_library(mylib SHARED ${LIB_SOURCES})
 #     snap7
 #     ${CMAKE_THREAD_LIBS_INIT}
 # )
-target_include_directories(mylib PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/inc)
-set_target_properties(mylib PROPERTIES LIBRARY_OUTPUT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/lib)
+target_include_directories(loaderLib PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/inc)
+set_target_properties(loaderLib PROPERTIES LIBRARY_OUTPUT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/lib)
 # set_target_properties(myexecutable PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/bin)
 # set_target_properties(opcua PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/bin)
