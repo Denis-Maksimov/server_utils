@@ -1,0 +1,1 @@
+gengetopt --input=cmdline.ggo --include-getopt --header-output-dir=./inc --src-output-dir=./src

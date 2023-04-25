@@ -1,0 +1,13 @@
+version "13.10.25"
+package "app"
+purpose "Sample application description.
+
+By John Doe <sample@example.com>"
+
+# Options
+option "filename" f "Строковый аргумент" string required
+option "size" s "Необязательный аргумент, принимает ровно 3 значения int, разделенных запятыми." multiple(3) optional int
+option "array" a "Обязательный аргумент, принимает 1 или более аргументов" multiple(1-) required int
+option "long-option" - "Option without short version" optional float
+option "default-value" d "Argument with default value" optional float default="0.003"
+option "console" c "Flag with default 'off'" flag off
