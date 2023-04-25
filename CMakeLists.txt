@@ -34,9 +34,17 @@ file(GLOB LIB_SOURCES)
 # add_library(mylib SHARED ${LIB_SOURCES})
 add_subdirectory("./open62541")
 add_subdirectory("./snap7")
-
+add_subdirectory("./libloader")
+add_subdirectory("./parser")
 # add_executable(myexecutable src/test.cpp)
 add_executable(myexecutable src/testS7.cpp)
+
+add_executable(opcua src/sql.cpp)
+target_link_libraries(opcua 
+    open62541
+    sqlite3
+    # ${CMAKE_THREAD_LIBS_INIT}
+)
 
 # target_link_libraries(myexecutable mylib ${CMAKE_THREAD_LIBS_INIT})
 target_link_libraries(myexecutable 
@@ -45,3 +53,4 @@ target_link_libraries(myexecutable
 )
 # set_target_properties(mylib PROPERTIES LIBRARY_OUTPUT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/bin)
 set_target_properties(myexecutable PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/bin)
+set_target_properties(opcua PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/bin)
