@@ -50,6 +50,12 @@ add_library(loaderLib SHARED ${LIB_SOURCES})
 #     snap7
 #     ${CMAKE_THREAD_LIBS_INIT}
 # )
+target_link_libraries(
+    loaderLib 
+    dl
+    ssl 
+    crypto 
+)
 target_include_directories(loaderLib PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/inc)
 set_target_properties(loaderLib PROPERTIES LIBRARY_OUTPUT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/lib)
 # set_target_properties(myexecutable PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/bin)

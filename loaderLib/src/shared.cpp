@@ -283,7 +283,7 @@ void* library::get_function(const char* fname)
 
 
 
-typedef int (*add_t)(int ,int );
+// typedef int (*add_t)(int ,int );
 
 // int main() {
 

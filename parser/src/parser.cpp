@@ -13,6 +13,12 @@
  * @param input 
  * @return ASTNode* 
  */
+
+
+/// @brief десериализация http
+/// request {mehod{},url{},version{},headers{...},body{}}
+/// @param input 
+/// @return 
 ASTNode parseHTTPRequest(std::string input)
 {
     //Проверка строки запроса на пустоту.
@@ -141,6 +147,9 @@ ASTNode parseHTTPRequest(std::string input)
 }
 
 
+/// @brief провверка структуры AST для http request
+/// @param node 
+/// @return true if is valid
 bool isASTValid(ASTNode node)
 {
     try
